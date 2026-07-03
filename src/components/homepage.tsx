@@ -530,7 +530,7 @@ function Capabilities() {
 
     {/* Description */}
 
-    <p className="text-slate-400 text-base text-lg lg:text-xl leading-7 max-w-xl mb-6">
+    <p className="text-slate-400 text-base leading-7 max-w-xl mb-6">
       {current.desc}
     </p>
 
