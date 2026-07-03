@@ -15,13 +15,15 @@ export default function Navbar() {
 
   const links = [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Services', href: '/' },
+    { label: 'About Us', href: '/' },
+    { label: 'Contact Us', href: '/' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-2 backdrop-blur-md">
+    //<header className="fixed top-0 left-0 right-0 z-50 py-2 backdrop-blur-md">
+
+    <header className="fixed top-0 left-0 right-0 z-50 py-0 backdrop-blur-md">
       {/* Background layer — always mounted, only opacity animates, so blur/border never toggle on/off */}
       <div
         className={`absolute inset-0 bg-[#0a0f1e] border-b border-white/5 transition-opacity duration-300 ${
@@ -29,6 +31,7 @@ export default function Navbar() {
         }`}
       />
 
+      {/*<div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">*/}
       <div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -49,9 +52,11 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          {/*
           <a href="#" className="text-sm text-slate-400 hover:text-white transition-colors">
             Sign In
           </a>
+          */}
           <a
             href="#"
             className="text-sm font-medium bg-gradient-to-r from-sky-500 to-teal-400 text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"

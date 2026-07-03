@@ -5,12 +5,11 @@ import {
   ArrowLeft,
   Share2,
   CheckCircle2,
-  Quote,
-  TrendingUp,
   Clock,
   Tag,
   Calendar,
   ArrowRight,
+  TrendingUp,
 } from 'lucide-react';
 import { caseStudies } from '../data/caseStudies';
 
@@ -51,7 +50,6 @@ export default function CaseStudyDetail() {
     return <Navigate to="/" replace />;
   }
 
-  // ✅ Shows 3 case studies, including the current one
   const otherStudies = caseStudies.slice(0, 3);
 
   return (
@@ -67,24 +65,26 @@ export default function CaseStudyDetail() {
         </div>
 
         {/* ── HERO ── */}
-        {/*<div ref={heroRef} className="relative h-[55vh] min-h-[420px] max-h-[560px] overflow-hidden">
+        <div ref={heroRef} className="relative h-[55vh] min-h-[420px] max-h-[560px] overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0 scale-110">
             <img src={study.img} alt={study.title} className="w-full h-full object-cover" />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/40 via-transparent to-transparent" />
 
-          <div className="absolute inset-0 flex flex-col justify-end max-w-7xl mx-auto px-6 w-full pt-10">
+          <div className="absolute top-20 left-14 z-10">
             <Link
               to="/"
-              className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-cyan-400 border border-white/20 hover:border-cyan-300 backdrop-blur-md rounded-full pl-2 pr-5 py-2 text-white hover:text-black text-sm font-semibold shadow-lg shadow-black/30 transition-all duration-300 mb-10 group w-fit"
+              className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-cyan-400 border border-white/20 hover:border-cyan-300 backdrop-blur-md rounded-full pl-2 pr-5 py-2 text-white hover:text-black text-sm font-semibold shadow-lg shadow-black/30 transition-all duration-300 group w-fit"
             >
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 group-hover:bg-black/10 transition">
                 <ArrowLeft className="w-3.5 h-3.5" />
               </span>
               Back to Journal
             </Link>
+          </div>
 
+          <div className="absolute inset-0 flex flex-col justify-end max-w-7xl mx-auto px-6 w-full">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ export default function CaseStudyDetail() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] max-w-4xl tracking-tight mb-7">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.05] max-w-4xl tracking-tight mb-7">
                 {study.title}
               </h1>
 
@@ -128,92 +128,7 @@ export default function CaseStudyDetail() {
               </div>
             </motion.div>
           </div>
-        </div>*/}
-
-{/* ── HERO ── */}
-<div ref={heroRef} className="relative h-[55vh] min-h-[420px] max-h-[560px] overflow-hidden">
-  <motion.div style={{ y: heroY }} className="absolute inset-0 scale-110">
-    <img src={study.img} alt={study.title} className="w-full h-full object-cover" />
-  </motion.div>
-  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/40 to-transparent" />
-  <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/40 via-transparent to-transparent" />
-
-  {/* ✅ Back button now pinned independently at a fixed top offset */}
-  {/*<div className="absolute top-8 left-6 z-10">
-    <Link
-      to="/"
-      className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-cyan-400 border border-white/20 hover:border-cyan-300 backdrop-blur-md rounded-full pl-2 pr-5 py-2 text-white hover:text-black text-sm font-semibold shadow-lg shadow-black/30 transition-all duration-300 group w-fit"
-    >
-      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 group-hover:bg-black/10 transition">
-        <ArrowLeft className="w-3.5 h-3.5" />
-      </span>
-      Back to Journal
-    </Link>
-  </div>*/}
-
-
-<div className="absolute top-20 left-14 z-10">
-  <Link
-    to="/"
-    className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-cyan-400 border border-white/20 hover:border-cyan-300 backdrop-blur-md rounded-full pl-2 pr-5 py-2 text-white hover:text-black text-sm font-semibold shadow-lg shadow-black/30 transition-all duration-300 group w-fit"
-  >
-    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 group-hover:bg-black/10 transition">
-      <ArrowLeft className="w-3.5 h-3.5" />
-    </span>
-    Back to Journal
-  </Link>
-</div>
-
-
-  {/* ✅ Title block no longer needs pt-10 or the Link inside it */}
-  <div className="absolute inset-0 flex flex-col justify-end max-w-7xl mx-auto px-6 w-full">
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="pb-14"
-    >
-      <div className="flex items-center gap-3 mb-5">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-400/25 text-cyan-300 text-[11px] font-bold uppercase tracking-[0.2em]">
-          <Tag className="w-3 h-3" />
-          {study.industry}
-        </span>
-        <span className="text-white/30 text-xs">·</span>
-        <span className="text-white/50 text-xs flex items-center gap-1">
-          <TrendingUp className="w-3 h-3" /> Trending
-        </span>
-      </div>
-
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.05] max-w-4xl tracking-tight mb-7">
-        {study.title}
-      </h1>
-
-      <div className="flex flex-wrap items-center gap-5">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-sm flex-shrink-0">
-            K
-          </div>
-          <div>
-            <p className="text-white text-sm font-semibold leading-tight">KriyaSoft LLP</p>
-            <p className="text-white/40 text-[11px]">Engineering &amp; Delivery Team</p>
-          </div>
         </div>
-        <div className="w-px h-8 bg-white/10" />
-        <span className="flex items-center gap-1.5 text-white/50 text-sm">
-          <Calendar className="w-3.5 h-3.5 text-cyan-400" />
-          {study.date}
-        </span>
-        <span className="flex items-center gap-1.5 text-white/50 text-sm">
-          <Clock className="w-3.5 h-3.5 text-cyan-400" />
-          {study.readTime}
-        </span>
-      </div>
-    </motion.div>
-  </div>
-</div>
-
-
-
 
         {/* ── BODY ── */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-14">
@@ -247,56 +162,24 @@ export default function CaseStudyDetail() {
               <p className="text-gray-400 leading-[2] text-[17px]">{study.challenge}</p>
             </div>
 
-            {/* The Results + How It Rolled Out */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-cyan-500/[0.06] to-white/[0.02] backdrop-blur-xl p-7">
-                <h3 className="text-2xl font-bold text-white mb-5 relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[3px] before:rounded-full before:bg-gradient-to-b before:from-cyan-400 before:to-blue-500">
-                  The Results
-                </h3>
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {study.outcomes.map(({ value, label }) => (
-                    <div
-                      key={label}
-                      className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5"
-                    >
-                      <p className="font-black text-xl text-white mb-0.5">{value}</p>
-                      <p className="text-[11px] text-white/40 leading-snug">{label}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[11px] text-white/40 uppercase tracking-widest mb-3">
-                  Technology Used
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {study.stack.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[11px] bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 rounded-full px-2.5 py-1"
-                    >
-                      {t}
+            {/* ── How It Rolled Out — FULL WIDTH ── */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8 mb-12">
+              <h3 className="text-2xl font-bold text-white mb-6 relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[3px] before:rounded-full before:bg-gradient-to-b before:from-cyan-400 before:to-blue-500">
+                How It Rolled Out
+              </h3>
+              <ol className="grid sm:grid-cols-2 gap-x-10 gap-y-7 border-l border-cyan-500/20 pl-6">
+                {study.phases.map((phase, i) => (
+                  <li key={phase.title} className="relative">
+                    <span className="absolute -left-[1.9rem] flex h-3 w-3 items-center justify-center">
+                      <span className="h-2 w-2 rounded-full bg-cyan-400" />
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7">
-                <h3 className="text-2xl font-bold text-white mb-5 relative pl-4 before:absolute before:left-0 before:top-1 before:bottom-1 before:w-[3px] before:rounded-full before:bg-gradient-to-b before:from-cyan-400 before:to-blue-500">
-                  How It Rolled Out
-                </h3>
-                <ol className="relative space-y-5 border-l border-cyan-500/20 pl-6">
-                  {study.phases.map((phase, i) => (
-                    <li key={phase.title} className="relative">
-                      <span className="absolute -left-[1.9rem] flex h-3 w-3 items-center justify-center">
-                        <span className="h-2 w-2 rounded-full bg-cyan-400" />
-                      </span>
-                      <div className="text-[10px] uppercase tracking-widest text-cyan-400 mb-1 font-bold">
-                        Phase {String(i + 1).padStart(2, '0')} — {phase.title}
-                      </div>
-                      <div className="text-gray-400 text-[13px] leading-relaxed">{phase.desc}</div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+                    <div className="text-[10px] uppercase tracking-widest text-cyan-400 mb-1 font-bold">
+                      Phase {String(i + 1).padStart(2, '0')} — {phase.title}
+                    </div>
+                    <div className="text-gray-400 text-[13px] leading-relaxed">{phase.desc}</div>
+                  </li>
+                ))}
+              </ol>
             </div>
 
             {/* Building the Solution */}
@@ -305,12 +188,16 @@ export default function CaseStudyDetail() {
                 Building the Solution
               </h3>
 
-              <div className="float-left mr-7 mb-4 mt-1 w-[50%] sm:w-[42%] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
-                <img
-                  src={study.secondaryImg}
-                  alt={`${study.title} detail`}
-                  className="w-full h-full object-cover aspect-[4/3]"
-                />
+              <div className="float-left mr-8 mb-5 mt-1 w-[50%] sm:w-[42%] rounded-2xl overflow-hidden border border-cyan-400/15 shadow-[0_8px_60px_rgba(0,200,255,0.07),0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+                <div className="relative aspect-[4/3]">
+                  <img
+                    src={study.secondaryImg}
+                    alt={`${study.title} detail`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/55 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050816]/20 pointer-events-none" />
+                </div>
               </div>
 
               <p className="text-gray-400 leading-[2] text-[17px] mb-5">
@@ -330,17 +217,7 @@ export default function CaseStudyDetail() {
               <div className="clear-both" />
             </div>
 
-            {/* Pull quote */}
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-cyan-500/[0.06] to-white/[0.02] backdrop-blur-xl p-8 mb-12">
-              <Quote size={24} className="text-cyan-400/40 mb-3" />
-              <blockquote className="text-lg text-white leading-relaxed mb-5">
-                "{study.quote.text}"
-              </blockquote>
-              <p className="text-white text-sm font-medium">{study.quote.author}</p>
-              <p className="text-white/40 text-xs">{study.quote.role}</p>
-            </div>
-
-            {/* Recent Case Studies — 3 blocks (including current), before the divider line, aligned to content width */}
+            {/* ── Recent Case Studies (pull quote removed above this) ── */}
             <div className="mb-14">
               <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-5">
                 Recent Case Studies
@@ -389,7 +266,7 @@ export default function CaseStudyDetail() {
               </div>
             </div>
 
-            {/* Author + share footer — white divider line lives here */}
+            {/* Author + share footer */}
             <div className="pt-8 border-t border-white/8 flex items-center justify-between gap-6 flex-wrap mb-14">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-lg flex-shrink-0">
