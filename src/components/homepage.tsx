@@ -375,37 +375,37 @@ function Services() {
 }
 
 // ─── Capabilities ─────────────────────────────────────────────────────────────
-
-
-
-
 const capabilities = [
   {
     icon: Workflow,
     title: "Full-Stack Custom Development",
     short: "Development",
-    desc: "End-to-end product engineering across web, mobile, and cloud — built on modern frameworks and designed to scale with your business.",
+    desc:
+      "End-to-end product engineering across web, mobile, and cloud using modern frameworks that scale with your business.",
     tech: ["React", "Next.js", "Node.js", "TypeScript"],
   },
   {
     icon: LineChart,
     title: "System Integration & Modernization",
     short: "Integration",
-    desc: "We connect disparate systems and modernize legacy platforms while preserving business continuity.",
+    desc:
+      "Connect enterprise systems and modernize legacy platforms while maintaining business continuity.",
     tech: ["REST APIs", "ERP", "CRM", "Microservices"],
   },
   {
     icon: Cpu,
     title: "Cloud Architecture & DevOps",
     short: "Cloud",
-    desc: "Scalable cloud infrastructure, CI/CD pipelines and DevOps practices for modern businesses.",
+    desc:
+      "Scalable cloud infrastructure, CI/CD pipelines and automated deployments for modern applications.",
     tech: ["AWS", "Azure", "Docker", "CI/CD"],
   },
   {
     icon: Shield,
     title: "Cybersecurity & Data Protection",
     short: "Security",
-    desc: "Enterprise-grade cybersecurity, monitoring, compliance and advanced data protection.",
+    desc:
+      "Enterprise-grade cybersecurity, compliance and advanced protection for mission-critical applications.",
     tech: ["SOC2", "HIPAA", "IAM", "Encryption"],
   },
 ];
@@ -413,109 +413,192 @@ const capabilities = [
 function Capabilities() {
   const [active, setActive] = useState(2);
 
-  const current = capabilities[active] ?? capabilities[0];
-const Icon = current.icon;
+  const current = capabilities[active];
+  const Icon = current.icon;
 
   return (
-    <section className="bg-[#0a0f1e] py-24">
+    <section className="bg-[#0a0f1e] py-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
 
-        <div className="text-center mb-20">
-          {/*<p className="text-sky-400 uppercase tracking-[0.35em] text-xs font-semibold mb-4">
-            Full-Spectrum Engineering
-          </p>*/}
+        <div className="text-center mb-12">
 
+          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
 
-          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Full-Spectrum Engineering
-              </span>
-            </div>
+            <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
+              Full-Spectrum Engineering
+            </span>
 
-          <h2 className="text-5xl font-bold text-white">
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
             Technology Capabilities
           </h2>
+
         </div>
 
-        <div className="grid lg:grid-cols-[350px_1fr] gap-20">
+        <div className="grid lg:grid-cols-[340px_1fr] gap-8 items-stretch">
 
-          {/* LEFT MENU */}
+          {/* LEFT PANEL */}
 
-          <div className="space-y-2">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden flex flex-col h-[420px]">
 
             {capabilities.map((item, index) => (
+
               <button
                 key={item.title}
                 onClick={() => setActive(index)}
-                className={`w-full flex justify-between items-center py-6 border-b transition-all duration-300
+                className={`flex-1 px-6 py-4 flex items-center justify-between border-b last:border-b-0 transition-all duration-300
+
                 ${
                   active === index
-                    ? "border-sky-400 text-sky-400"
-                    : "border-white/10 text-white hover:text-sky-300"
+                    ? "bg-sky-500/10 border-sky-500/20"
+                    : "border-white/10 hover:bg-white/[0.05]"
                 }`}
               >
-                <span className="text-xl font-semibold">
-                  {item.short}
-                </span>
+
+                <div className="text-left">
+
+                  <h3
+                    className={`text-lg font-semibold transition-colors
+
+                    ${
+                      active === index
+                        ? "text-sky-400"
+                        : "text-white"
+                    }`}
+                  >
+                    {item.short}
+                  </h3>
+
+                  <p className="text-xs text-slate-500 mt-1">
+                    {item.title}
+                  </p>
+
+                </div>
 
                 <ArrowRight
                   size={20}
-                  className={`transition-transform ${
+                  className={`transition-all duration-300
+
+                  ${
                     active === index
-                      ? "translate-x-2"
-                      : ""
+                      ? "text-sky-400 translate-x-2"
+                      : "text-slate-500"
                   }`}
                 />
+
               </button>
+
             ))}
 
           </div>
 
-          {/* RIGHT CONTENT */}
+          {/* RIGHT PANEL */}
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 flex flex-col justify-between h-[420px]">
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+  <div>
 
-            <div className="w-20 h-16 rounded-2xl bg-sky-500/10 flex items-center justify-center border border-sky-500/20 mb-8">
+    {/* Icon + Heading */}
 
-              <Icon
-                size={38}
-                className="text-sky-400"
-              />
+    <div className="flex items-center gap-4 mb-4">
 
-            </div>
+      <div className="w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
 
-            <h3 className="text-3xl font-bold text-white mb-6">
-              {current.title}
-            </h3>
-
-            <p className="text-slate-400 text-lg leading-8 max-w-2xl mb-10">
-              {current.desc}
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-
-              {current.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-5 py-2 rounded-full border border-sky-500/20 bg-sky-500/10 text-sky-300 text-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
+        <Icon
+          size={32}
+          className="text-sky-400"
+        />
 
       </div>
-    </section>
+
+      <div>
+
+        <p className="text-[11px] uppercase tracking-[0.25em] text-sky-400 font-semibold mb-1">
+          Capability
+        </p>
+
+        <h3 className="text-3xl font-bold text-white leading-tight">
+          {current.title}
+        </h3>
+
+      </div>
+
+    </div>
+
+    {/* Description */}
+
+    <p className="text-slate-400 text-base text-lg lg:text-xl leading-7 max-w-xl mb-6">
+      {current.desc}
+    </p>
+
+    {/* Technologies */}
+
+    <div>
+
+      <p className="text-lg font-semibold uppercase tracking-[0.25em] text-slate-100 mb-3">
+        Technologies
+      </p>
+
+      <div className="flex flex-wrap gap-2">
+
+        {current.tech.map((tech) => (
+
+          <span
+            key={tech}
+            className="px-4 py-2 rounded-full border border-sky-500/20 bg-sky-500/10 text-sky-300 text-sm font-medium transition-all duration-300 hover:bg-sky-500/20 hover:border-sky-400 hover:scale-105"
+          >
+            {tech}
+          </span>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* Bottom Footer */}
+  <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between flex-wrap gap-4">
+
+  <div className="flex -space-x-2">
+
+    {[
+      "bg-sky-400",
+      "bg-teal-400",
+      "bg-blue-400",
+    ].map((color, index) => (
+
+      <div
+        key={index}
+        className={`w-8 h-8 rounded-full ${color} border-2 border-[#0a0f1e]`}
+      />
+
+    ))}
+
+  </div>
+
+  <span className="text-sm text-slate-400">
+    Enterprise-grade solutions built for modern businesses
+  </span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
   );
 }
+
+
+
 
 
 

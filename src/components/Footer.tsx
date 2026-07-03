@@ -21,7 +21,7 @@ export default function Footer() {
             },
             {
               heading: 'Company',
-              links: ['About', 'Case Studies', 'Careers', 'Blog', 'Contact'],
+              links: ['home', 'services', 'About Us', 'Contact'],
             },
             {
               heading: 'Legal',
@@ -47,7 +47,7 @@ export default function Footer() {
           <p className="text-slate-600 text-sm">
             &copy; {new Date().getFullYear()} KriyaSoft LLP. All rights reserved.
           </p>
-          <p className="text-slate-700 text-xs">Built for engineers, by engineers.</p>
+          {/*<p className="text-slate-700 text-xs">Built for engineers, by engineers.</p>*/}
         </div>
       </div>
     </footer>
