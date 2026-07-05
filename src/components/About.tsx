@@ -1,27 +1,48 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  HeartPulse,
+  Cpu,
+  Landmark,
+  Briefcase,
+  Building2,
+  ShieldCheck,
+} from "lucide-react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import healthImg from "../assets/health about.png";
+import aiImg from "../assets/AI about.png";
+import financeImg from "../assets/finance about.png";
 
-const values = [
-  ["Domain Depth", "Architects and engineers with deep expertise in regulated industries — healthcare, finance, AI."],
-  ["Compliance First", "HIPAA, PCI-DSS, AML, KYC, SOC 2 baked into design, not bolted on after."],
-  ["Velocity", "Compounding speed across product, platform, and people — measurable outcomes."],
-  ["Honesty", "Direct reporting, transparent trade-offs, no theatrical roadmaps."],
+// ─── Content sourced only from the approved company description ──────────────
+
+const credentials = [
+  { icon: Briefcase, top: "10+", bottom: "Years Experience" },
+  { icon: Building2, top: "Architects", bottom: "Systems Design" },
+  { icon: Cpu, top: "Engineers", bottom: "AI · Platform" },
+  { icon: ShieldCheck, top: "Domain Specialists", bottom: "Healthcare · Finance" },
 ];
 
-const timeline = [
-  ["2014", "Founded as a 3-person engineering studio focused on enterprise integration."],
-  ["2017", "First major healthcare deployment — HIPAA-compliant EHR integration platform."],
-  ["2021", "AI & ML practice launched. Crossed 50+ production deployments."],
-  ["2026", "10+ years in market, serving healthcare, finance, and AI clients across three continents."],
-];
-
-const team = [
-  ["Architects", "Systems & Solution Design"],
-  ["AI Engineers", "ML / NLP / Vision"],
-  ["Security Specialists", "Compliance & Audit"],
-  ["Domain Experts", "Healthcare · Finance"],
+const sectors = [
+  {
+    icon: HeartPulse,
+    image: healthImg,
+    title: "Healthcare",
+    desc: "EHR integration, HIPAA-compliant architecture, patient data platforms, and telemedicine.",
+  },
+  {
+    icon: Cpu,
+    image: aiImg,
+    title: "AI",
+    desc: "Custom ML models, predictive analytics, intelligent automation, and NLP/computer vision.",
+  },
+  {
+    icon: Landmark,
+    image: financeImg,
+    title: "Finance",
+    desc: "Payment systems, AML/KYC compliance, transaction settlement, and blockchain solutions.",
+  },
 ];
 
 export default function AboutPage() {
@@ -34,7 +55,7 @@ export default function AboutPage() {
         <div className="absolute top-0 right-0 w-[32rem] h-[32rem] rounded-full bg-sky-500/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-teal-400/5 blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-6 w-full pt-24 pb-20 relative">
+        <div className="max-w-5xl mx-auto px-[3%] sm:px-6 w-full pt-24 pb-20 relative">
           <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
             <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
@@ -47,7 +68,7 @@ export default function AboutPage() {
             <span className="gradient-text">Healthcare, AI,</span> and Finance
           </h1>
 
-          <p className="text-slate-400 text-lg font-semibold leading-relaxed max-w-2xl mb-10 border-l-2 border-sky-500/30 pl-6">
+          <p className="text-slate-400 text-lg font-semibold leading-relaxed max-w-2xl mb-10 border-l-2 border-sky-500/30 pl-5 sm:pl-6">
             Kriyasoft is a technology services firm specializing in enterprise
             solutions for three primary sectors: Healthcare, AI, and Finance. With
             10+ years of industry experience, our team of architects, engineers, and
@@ -63,176 +84,105 @@ export default function AboutPage() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          {/* Credentials strip — small blurred glass cards, homepage-style hover */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              ["10+", "Years Experience"],
-              ["Architects", "Systems Design"],
-              ["Engineers", "AI · Platform"],
-              ["Domain Specialists", "Healthcare · Finance"],
-            ].map(([top, bottom]) => (
+          {/* Credentials — mobile: icon stacks above text so long labels
+              ("Domain Specialists") wrap inside the card instead of
+              overflowing it. sm and up: unchanged side-by-side layout. */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            {credentials.map(({ icon: Icon, top, bottom }) => (
               <div
                 key={top}
-                className="bg-white/[0.05] backdrop-blur-md rounded-xl border border-white/10 px-5 py-6 transition-all duration-300 hover:bg-white/[0.09] hover:border-sky-400/30 hover:-translate-y-1"
+                className="card-hover solid-card rounded-2xl p-3 sm:p-5"
               >
-                <div className="font-display text-xl lg:text-2xl font-800 text-white mb-1.5">
-                  {top}
-                </div>
-                <div className="font-medium text-[12px] uppercase tracking-widest text-slate-400">
-                  {bottom}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values — editorial row instead of card grid */}
-      <section className="bg-[#080c18] py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 max-w-2xl">
-            {/*<div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Principles
-              </span>
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight">
-              Operating principles.
-            </h2>
-          </div>*/}
-
-
-           <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Principles
-              </span>
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight">
-              Operating principles.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4">
-            {values.map(([title, body], i) => (
-              <div
-                key={title}
-                className={`py-8 pr-6 ${i !== 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""} ${
-                  i % 2 !== 0 ? "md:border-l md:border-white/10 md:pl-8" : ""
-                }`}
-              >
-                <h3 className="font-display font-700 text-sky-400 text-xl mb-3">
-                  {title}
-                </h3>
-                <p className="text-slate-400 text-sm font-semibold leading-relaxed">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline — horizontal on desktop, vertical on mobile */}
-      <section className="bg-[#0a0f1e] py-28 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Trajectory
-              </span>
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight">
-              Ten-plus years, compounded.
-            </h2>
-          </div>
-
-          {/* Desktop horizontal rail */}
-          <div className="hidden lg:block relative">
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-sky-500/20 -translate-y-1/2" />
-            <div className="grid grid-cols-4 gap-6 relative">
-              {timeline.map(([year, body], i) => (
-                <div
-                  key={year}
-                  className={`flex flex-col ${i % 2 === 0 ? "justify-end pb-10" : "justify-start pt-10 mt-auto"}`}
-                >
-                  {i % 2 === 0 && (
-                    <div className="solid-card rounded-xl p-5 mb-6">
-                      <div className="font-display text-xs uppercase tracking-widest text-sky-400 mb-2">
-                        {year}
-                      </div>
-                      <div className="text-slate-300 text-sm font-semibold leading-relaxed">{body}</div>
-                    </div>
-                  )}
-                  <span className="relative mx-auto flex h-4 w-4 items-center justify-center">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400/60" />
-                    <span className="relative h-3 w-3 rounded-full bg-sky-400" />
-                  </span>
-                  {i % 2 !== 0 && (
-                    <div className="solid-card rounded-xl p-5 mt-6">
-                      <div className="font-display text-xs uppercase tracking-widest text-sky-400 mb-2">
-                        {year}
-                      </div>
-                      <div className="text-slate-300 text-sm font-semibold leading-relaxed">{body}</div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile / tablet vertical rail */}
-          <ol className="lg:hidden relative space-y-6 border-l border-sky-500/20 pl-8">
-            {timeline.map(([year, body]) => (
-              <li key={year} className="relative">
-                <span className="absolute -left-[2.4rem] flex h-4 w-4 items-center justify-center">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400/60" />
-                  <span className="relative h-3 w-3 rounded-full bg-sky-400" />
-                </span>
-                <div className="solid-card rounded-xl p-5">
-                  <div className="font-display text-xs uppercase tracking-widest text-sky-400 mb-2">
-                    {year}
+                <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-xl bg-sky-500/10 border border-sky-500/15 flex items-center justify-center">
+                    <Icon size={18} className="text-sky-400" />
                   </div>
-                  <div className="text-slate-300 text-sm font-semibold leading-relaxed">{body}</div>
+                  <div className="min-w-0 w-full">
+                    <div className="font-display text-base sm:text-lg md:text-xl font-800 text-white leading-tight break-words">
+                      {top}
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-slate-400 mt-1 break-words sm:truncate">
+                      {bottom}
+                    </div>
+                  </div>
                 </div>
-              </li>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      {/* Team — formal roster rows instead of a card grid */}
-      <section className="bg-[#050810] py-28">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="mb-16 max-w-2xl">
+      {/* Core sectors — grounded only in the approved service descriptions */}
+      <section className="bg-[#080c18] py-24">
+        <div className="max-w-7xl mx-auto px-[3%] sm:px-6">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
-                Crew
+                What We Focus On
               </span>
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight">
-              The people behind the systems.
+              Three sectors. One standard of care.
             </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {sectors.map(({ icon: Icon, image, title, desc }) => (
+              <div key={title} className="card-hover solid-card rounded-2xl overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={image} alt={title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-transparent to-transparent" />
+                  <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-[#0a0f1e]/80 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                    <Icon size={20} className="text-sky-400" />
+                  </div>
+                </div>
+                <div className="p-6 sm:p-7">
+                  <h3 className="font-display font-600 text-teal-400 text-lg mb-3">{title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team composition — roster rows, grounded only in approved wording */}
+      <section className="bg-[#050810] py-28">
+        <div className="max-w-4xl mx-auto px-[3%] sm:px-6">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
+                Our Team
+              </span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight">
+              Architects, engineers, and domain specialists.
+            </h2>
+            <p className="text-slate-400 text-base font-medium leading-relaxed mt-6 max-w-xl mx-auto">
+              We focus on delivering secure, scalable, compliant solutions that
+              drive measurable business value.
+            </p>
           </div>
 
           <div className="border-t border-white/10">
-            {team.map(([name, role], i) => (
+            {credentials.slice(1).map(({ top, bottom }, i) => (
               <div
-                key={name}
-                className="group flex items-center justify-between gap-6 py-6 border-b border-white/10 hover:bg-white/[0.03] transition-colors px-2"
+                key={top}
+                className="group flex items-center justify-between gap-3 sm:gap-6 py-6 border-b border-white/10 hover:bg-white/[0.03] transition-colors px-2"
               >
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs text-slate-600 w-6">
+                <div className="flex items-center gap-2.5 sm:gap-4 min-w-0">
+                  <span className="font-mono text-xs text-slate-600 w-5 sm:w-6 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <CheckCircle2 size={18} className="text-sky-400 shrink-0" />
-                  <span className="font-display font-700 text-white text-lg">
-                    {name}
+                  <span className="font-display font-700 text-white text-base sm:text-lg truncate">
+                    {top}
                   </span>
                 </div>
-                <span className="font-semibold text-[13px] uppercase tracking-widest text-slate-500 text-right">
-                  {role}
+                <span className="font-semibold text-[11px] sm:text-[13px] uppercase tracking-widest text-slate-500 text-right shrink-0">
+                  {bottom}
                 </span>
               </div>
             ))}
