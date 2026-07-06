@@ -158,14 +158,14 @@ function ServicesHero() {
                 Explore Services
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>*/}
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="group flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20">
                 Talk to Our Experts
 
 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
 
-              </a>
+              </Link>
             
             </div>
           </div>
@@ -532,13 +532,13 @@ function CTASection() {
           enterprise software built to scale, built to comply, and built to last.
         </p>
         <div className="flex justify-center mb-10">
-          <a
-            href="#"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-8 py-4 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20"
           >
             Talk to Our Experts
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
        
       </div>
