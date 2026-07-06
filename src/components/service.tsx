@@ -77,8 +77,6 @@ function SectionTag({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Hero — rebuilt to match the About page's single-column hero layout ───────
-
 const heroHighlights = [
   { icon: Stethoscope, top: 'HIPAA', bottom: 'Healthcare Compliant' },
   { icon: Cpu, top: 'AI / ML', bottom: 'Predictive & Automated' },
@@ -115,7 +113,6 @@ function ServicesHero() {
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
 
-        {/* Highlight cards — mirrors the About page's credentials grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {heroHighlights.map(({ icon: Icon, top, bottom }) => (
             <div key={top} className="card-hover solid-card rounded-2xl p-3 sm:p-5">
@@ -218,7 +215,7 @@ function ServiceRow({
 }
 
 function ServicesList() {
-  const [openId, setOpenId] = useState<string | null>('01');
+  const [openId, setOpenId] = useState<string | null>(null);
 
   return (
     <section id="focus-areas" className="relative bg-[#080c18] border-t border-white/10 py-14 md:py-20">
