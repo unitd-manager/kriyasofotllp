@@ -173,7 +173,7 @@ function ServiceRow({
             {service.title}
           </h3>
           <p className="text-slate-500 text-xs md:text-sm mt-1.5">{service.blurb}</p>
-          <div className="flex flex-wrap gap-1.5 mt-3">
+          {/*<div className="flex flex-wrap gap-1.5 mt-3">
             {service.tags.map((t) => (
               <span
                 key={t}
@@ -182,7 +182,22 @@ function ServiceRow({
                 {t}
               </span>
             ))}
-          </div>
+          </div>*/}
+
+
+<div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 mt-3">
+  {service.tags.map((t) => (
+    <span
+      key={t}
+      className="text-[10px] md:text-xs text-center bg-sky-500/10 border border-sky-500/20 text-sky-400 rounded-full px-2.5 py-1"
+    >
+      {t}
+    </span>
+  ))}
+</div>
+
+
+
         </div>
 
         <div
