@@ -85,23 +85,22 @@ function WireSphere({ size }: { size: number }) {
     width: size,
     height: size,
     borderRadius: "9999px",
-    border: "1px solid rgba(186,230,253,0.6)",
+    border: "1px solid rgba(186,230,253,0.55)",
     background: "transparent",
-    boxShadow: "inset 0 0 24px rgba(125,211,252,0.25)",
   };
   return (
     <div style={{ perspective: 1100 }}>
       <div
         style={{
           position: "absolute",
-          width: size * 1.6,
-          height: size * 1.6,
-          left: -size * 0.8,
-          top: -size * 0.8,
+          width: size * 1.15,
+          height: size * 1.15,
+          left: -size * 0.075,
+          top: -size * 0.075,
           borderRadius: "9999px",
           background:
-            "radial-gradient(circle, rgba(125,211,252,0.4), rgba(125,211,252,0.12) 45%, transparent 70%)",
-          filter: "blur(20px)",
+            "radial-gradient(circle, rgba(125,211,252,0.35) 0%, rgba(125,211,252,0.22) 30%, rgba(125,211,252,0.08) 55%, transparent 75%)",
+          filter: "blur(14px)",
           animation: "glow-pulse 6s ease-in-out infinite",
         }}
       />
@@ -133,7 +132,7 @@ function WireSphere({ size }: { size: number }) {
 
 function ServicesHero() {
   return (
-    <section className="hero-bg grid-bg min-h-screen flex items-center relative overflow-hidden pt-20">
+    <section className="hero-bg grid-bg min-h-screen flex items-center relative overflow-x-hidden overflow-y-visible pt-20">
       <div className="max-w-7xl mx-auto px-[3%] sm:px-6 w-full py-14">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -171,12 +170,18 @@ function ServicesHero() {
             </div>
           </div>
 
-          {/* Right — wireframe sphere + Saturn-style ring, no container, ring fixed in place */}
-          <div className="relative flex justify-center overflow-hidden">
-            <div className="relative flex items-center justify-center mr-6 lg:mr-10 scale-[0.8] sm:scale-100" style={{ width: 340, height: 340, maxWidth: '100%' }}>
+          {/* Right — wireframe sphere + Saturn-style ring, no container, ring fixed in place.
+              Sized with a Tailwind width (not a fixed px + scale hack) so it never exceeds
+              the viewport and can't force the page to scroll horizontally on mobile. */}
+          <div className="relative flex justify-center w-full overflow-hidden">
+            <div
+              className="relative flex items-center justify-center w-[95%] mx-auto sm:w-[300px] sm:mx-0 lg:w-[340px] max-w-full aspect-square"
+            >
 
-              {/* Central sphere with a fixed Saturn-style ring that crosses through its middle — back half behind, front half in front */}
-              <div className="relative z-10" style={{ perspective: 1100 }}>
+              {/* Central sphere with a fixed Saturn-style ring that crosses through its middle — back half behind, front half in front.
+                  Scaled up as a whole ONLY below the sm breakpoint so the ring reads at ~95% of the mobile screen width
+                  instead of the smaller size it was at before. sm and up render at scale-100 (unchanged from before). */}
+              <div className="relative z-10 scale-[0.75] sm:scale-100 origin-center" style={{ perspective: 1100 }}>
                 {/* Ring back half — sits behind the sphere */}
                 <div
                   className="absolute rounded-full pointer-events-none"
@@ -243,6 +248,7 @@ function ServicesHero() {
           </div>
 
           <style>{`
+            html, body { overflow-x: hidden; max-width: 100%; }
             @keyframes cube-spin { from { transform: rotateY(0deg) rotateX(8deg); } to { transform: rotateY(360deg) rotateX(8deg); } }
             @keyframes glow-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
           `}</style>
@@ -542,7 +548,7 @@ function CTASection() {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[#0a0f1e]">
+    <div className="min-h-screen bg-[#0a0f1e] overflow-x-hidden">
       <Navbar />
       <ServicesHero />
       <ServicesList />

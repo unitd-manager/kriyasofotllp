@@ -58,7 +58,7 @@ function Hero() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#"
+                href="/contact"
                 className="group flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20"
               >
                 Talk to Our Experts
@@ -650,7 +650,7 @@ function CTASection() {
           built to scale, built to comply, and built to last.
         </p>
         <a
-          href="#"
+          href="/contact"
           className="group inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-8 py-4 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20"
         >
           Talk to Our Experts
