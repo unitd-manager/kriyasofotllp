@@ -49,9 +49,9 @@ function ContactHero() {
           <br />
           <span className="gradient-text">conversation.</span>
         </h1>
-        <p className="text-slate-400 text-lg leading-relaxed max-w-xl mx-auto">
+        {/*<p className="text-slate-400 text-lg leading-relaxed max-w-xl mx-auto">
           Reach out to our U.S. team — we're happy to talk through your project.
-        </p>
+        </p>*/}
       </div>
     </section>
   );

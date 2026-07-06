@@ -55,8 +55,8 @@ export default function AboutPage() {
         <div className="absolute top-0 right-0 w-[32rem] h-[32rem] rounded-full bg-sky-500/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-teal-400/5 blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto px-[3%] sm:px-6 w-full pt-24 pb-20 relative">
-          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-6">
+        <div className="max-w-6xl mx-auto px-[3%] sm:px-6 w-full pt-24 pb-20 relative">
+          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1. mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
             <span className="text-sky-400 text-xs font-medium tracking-widest uppercase">
               About Kriyasoft

@@ -11,6 +11,7 @@ import {
   Workflow,
   Lock,
   Shield,
+  ShieldCheck,
   type LucideIcon,
 } from 'lucide-react';
 import Navbar from './Navbar';
@@ -76,182 +77,63 @@ function SectionTag({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Wireframe sphere — copied exactly, unmodified, from the reference component ──
+// ─── Hero — rebuilt to match the About page's single-column hero layout ───────
 
-function WireSphere({ size }: { size: number }) {
-  const t = size / 2;
-  const wireRing: React.CSSProperties = {
-    position: "absolute",
-    width: size,
-    height: size,
-    borderRadius: "9999px",
-    border: "1px solid rgba(186,230,253,0.55)",
-    background: "transparent",
-  };
-  return (
-    <div style={{ perspective: 1100 }}>
-      <div
-        style={{
-          position: "absolute",
-          width: size * 1.15,
-          height: size * 1.15,
-          left: -size * 0.075,
-          top: -size * 0.075,
-          borderRadius: "9999px",
-          background:
-            "radial-gradient(circle, rgba(125,211,252,0.35) 0%, rgba(125,211,252,0.22) 30%, rgba(125,211,252,0.08) 55%, transparent 75%)",
-          filter: "blur(14px)",
-          animation: "glow-pulse 6s ease-in-out infinite",
-        }}
-      />
-      <div
-        style={{
-          width: size,
-          height: size,
-          transformStyle: "preserve-3d",
-          transform: `translate(-${t}px, -${t}px)`,
-          animation: "cube-spin 22s linear infinite",
-        }}
-      >
-     <div style={{ ...wireRing, transform: `rotateX(0deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(30deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(60deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(90deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(120deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(150deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(0deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(30deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(60deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(90deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(120deg)` }} />
-       <div style={{ ...wireRing, transform: `rotateY(150deg)` }} /> 
-      </div>
-    </div>
-  );
-}
+const heroHighlights = [
+  { icon: Stethoscope, top: 'HIPAA', bottom: 'Healthcare Compliant' },
+  { icon: Cpu, top: 'AI / ML', bottom: 'Predictive & Automated' },
+  { icon: Landmark, top: 'AML / KYC', bottom: 'Finance Compliant' },
+  { icon: ShieldCheck, top: '10+ Years', bottom: 'Regulated Delivery' },
+];
 
 function ServicesHero() {
   return (
-    <section className="hero-bg grid-bg min-h-screen flex items-center relative overflow-x-hidden overflow-y-visible pt-20">
-      <div className="max-w-7xl mx-auto px-[3%] sm:px-6 w-full py-14">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <SectionTag>What We Do</SectionTag>
+    <section className="hero-bg grid-bg relative overflow-hidden pt-6">
+      <div className="absolute top-0 right-0 w-[32rem] h-[32rem] rounded-full bg-sky-500/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-teal-400/5 blur-3xl pointer-events-none" />
 
-            <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-800 text-white leading-[1.05] mb-4">
-              Services built for
-              <br />
-              <span className="gradient-text">regulated industries.</span>
-            </h1>
+      <div className="max-w-6xl mx-auto px-[3%] sm:px-6 w-full pt-24 pb-20 relative">
+        <SectionTag>What We Do</SectionTag>
 
-            <p className="text-slate-400 text-lg leading-relaxed max-w-lg mb-8">
-              Secure, scalable, and compliant technology across Healthcare, AI,
-              and Finance — delivered by architects who understand your
-              regulatory environment.
-            </p>
+        <h1 className="font-display text-5xl lg:text-6xl xl:text-7xl font-800 text-white leading-[1.05] max-w-4xl mb-8">
+          Empowering{' '}
+          <span className="gradient-text">regulated industries</span> with smart
+          technology
+        </h1>
 
-            <div className="flex flex-wrap gap-4">
-              {/* <a
-                href="#focus-areas"
-                className="group flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20"
-              >
-                Explore Services
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>*/}
-              <Link
-                to="/contact"
-                className="group flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20">
-                Talk to Our Experts
+        <p className="text-slate-400 text-lg font-semibold leading-relaxed max-w-2xl mb-10 border-l-2 border-sky-500/30 pl-5 sm:pl-6">
+          Secure, scalable, and compliant technology across Healthcare, AI, and
+          Finance — delivered by architects, engineers, and domain specialists
+          who understand your regulatory environment.
+        </p>
 
-<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        <Link
+          to="/contact"
+          className="group inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-teal-400 text-white font-medium px-7 py-3.5 rounded-full hover:opacity-90 transition-all duration-200 shadow-lg shadow-sky-500/20 mb-16"
+        >
+          Talk to Our Experts
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
 
-              </Link>
-            
-            </div>
-          </div>
-
-          {/* Right — wireframe sphere + Saturn-style ring, no container, ring fixed in place.
-              Sized with a Tailwind width (not a fixed px + scale hack) so it never exceeds
-              the viewport and can't force the page to scroll horizontally on mobile. */}
-          <div className="relative flex justify-center w-full overflow-hidden">
-            <div
-              className="relative flex items-center justify-center w-[95%] mx-auto sm:w-[300px] sm:mx-0 lg:w-[340px] max-w-full aspect-square"
-            >
-
-              {/* Central sphere with a fixed Saturn-style ring that crosses through its middle — back half behind, front half in front.
-                  Scaled up as a whole ONLY below the sm breakpoint so the ring reads at ~95% of the mobile screen width
-                  instead of the smaller size it was at before. sm and up render at scale-100 (unchanged from before). */}
-              <div className="relative z-10 scale-[0.75] sm:scale-100 origin-center" style={{ perspective: 1100 }}>
-                {/* Ring back half — sits behind the sphere */}
-                <div
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    width: 480,
-                    height: 480,
-                    left: '50%',
-                    top: '50%',
-                    marginLeft: -240,
-                    marginTop: -240,
-                    transform: 'rotateX(72deg) rotateZ(-12deg)',
-                    transformStyle: 'preserve-3d',
-                    zIndex: 5,
-                    clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)',
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, transparent 30%, rgba(224,148,74,0.8) 35%, rgba(224,148,74,0.4) 45%, rgba(103,196,246,0.55) 54%, transparent 64%)',
-                      filter: 'blur(0.3px)',
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: '1.5px solid rgba(224,148,74,0.75)' }}
-                  />
+        {/* Highlight cards — mirrors the About page's credentials grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          {heroHighlights.map(({ icon: Icon, top, bottom }) => (
+            <div key={top} className="card-hover solid-card rounded-2xl p-3 sm:p-5">
+              <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-xl bg-sky-500/10 border border-sky-500/15 flex items-center justify-center">
+                  <Icon size={18} className="text-sky-400" />
                 </div>
-
-                <WireSphere size={170} />
-
-                {/* Ring front half — sits in front of the sphere */}
-                <div
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    width: 480,
-                    height: 480,
-                    left: '50%',
-                    top: '50%',
-                    marginLeft: -240,
-                    marginTop: -240,
-                    transform: 'rotateX(72deg) rotateZ(-12deg)',
-                    transformStyle: 'preserve-3d',
-                    zIndex: 20,
-                    clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)',
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, transparent 30%, rgba(224,148,74,0.8) 35%, rgba(224,148,74,0.4) 45%, rgba(103,196,246,0.55) 54%, transparent 64%)',
-                      filter: 'blur(0.3px)',
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: '1.5px solid rgba(224,148,74,0.75)' }}
-                  />
+                <div className="min-w-0 w-full">
+                  <div className="font-display text-base sm:text-lg md:text-xl font-800 text-white leading-tight break-words">
+                    {top}
+                  </div>
+                  <div className="text-[11px] sm:text-xs text-slate-400 mt-1 break-words sm:truncate">
+                    {bottom}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <style>{`
-            html, body { overflow-x: hidden; max-width: 100%; }
-            @keyframes cube-spin { from { transform: rotateY(0deg) rotateX(8deg); } to { transform: rotateY(360deg) rotateX(8deg); } }
-            @keyframes glow-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-          `}</style>
+          ))}
         </div>
       </div>
     </section>
@@ -540,7 +422,6 @@ function CTASection() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
-       
       </div>
     </section>
   );

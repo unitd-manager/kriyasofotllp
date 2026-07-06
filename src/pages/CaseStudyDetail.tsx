@@ -12,6 +12,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { caseStudies } from '../data/caseStudies';
+import logo from '../assets/logo.png';
 
 /* ─── Reading progress bar ─── */
 const ReadingProgress = () => {
@@ -80,7 +81,7 @@ export default function CaseStudyDetail() {
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white/10 group-hover:bg-black/10 transition shrink-0">
                 <ArrowLeft className="w-3.5 h-3.5" />
               </span>
-              Back to Journal
+              Back to Home
             </Link>
           </div>
 
@@ -107,15 +108,11 @@ export default function CaseStudyDetail() {
               </h1>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-sm flex-shrink-0">
-                    K
-                  </div>
-                  <div>
-                    <p className="text-white text-sm font-semibold leading-tight">KriyaSoft LLP</p>
-                    <p className="text-white/40 text-[11px]">Engineering &amp; Delivery Team</p>
-                  </div>
-                </div>
+                <img
+                  src={logo}
+                  alt="KriyaSoft LLP"
+                  className="h-8 w-auto object-contain"
+                />
                 <div className="hidden sm:block w-px h-8 bg-white/10" />
                 <span className="flex items-center gap-1.5 text-white/50 text-sm whitespace-nowrap">
                   <Calendar className="w-3.5 h-3.5 text-cyan-400" />
@@ -217,7 +214,7 @@ export default function CaseStudyDetail() {
               <div className="clear-both" />
             </div>
 
-            {/* ── Recent Case Studies (pull quote removed above this) ── */}
+            {/* ── Recent Case Studies ── */}
             <div className="mb-14">
               <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-5">
                 Recent Case Studies
@@ -227,15 +224,16 @@ export default function CaseStudyDetail() {
                   <Link
                     key={s.slug}
                     to={`/case-studies/${s.slug}`}
-                    className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl overflow-hidden hover:border-cyan-400/30 hover:bg-white/[0.05] transition-all duration-300"
+                    className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl overflow-hidden hover:border-cyan-400/30 hover:bg-white/[0.05] transition-all duration-300 [transform:translateZ(0)] [backface-visibility:hidden]"
                   >
-                    <div className="relative h-40 overflow-hidden">
+                    <div className="relative h-40 overflow-hidden rounded-t-2xl [transform:translateZ(0)] [backface-visibility:hidden] [will-change:transform]">
                       <img
                         src={s.img}
                         alt={s.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                        style={{ imageRendering: 'auto' }}
+                        className="w-full h-full object-cover scale-[1.03] blur-[0.4px] transition-transform duration-[900ms] ease-out group-hover:scale-110 [transform:translateZ(0)] [backface-visibility:hidden]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/90 via-[#050816]/30 to-transparent" />
                       <span className="absolute top-3 left-3 text-[9px] uppercase tracking-[0.2em] text-cyan-300 bg-black/50 backdrop-blur-sm border border-cyan-500/20 px-2.5 py-1 rounded-full font-semibold">
                         {s.industry}
                       </span>
@@ -251,10 +249,6 @@ export default function CaseStudyDetail() {
                         {s.summary}
                       </p>
                       <div className="flex items-center justify-between mt-auto gap-2">
-                        <span className="text-white/30 text-[11px] flex items-center gap-1 whitespace-nowrap">
-                          <Calendar className="w-3 h-3" />
-                          {s.date}
-                        </span>
                         <span className="flex items-center gap-1 text-cyan-400 text-xs font-semibold whitespace-nowrap">
                           Read
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
@@ -268,18 +262,11 @@ export default function CaseStudyDetail() {
 
             {/* Author + share footer */}
             <div className="pt-8 border-t border-white/8 flex items-center justify-between gap-6 flex-wrap mb-14">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-lg flex-shrink-0">
-                  K
-                </div>
-                <div>
-                  <p className="font-semibold text-white text-sm">KriyaSoft LLP</p>
-                  <p className="text-xs text-gray-400">Engineering &amp; Delivery Team</p>
-                </div>
-              </div>
-              <button className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-white/60 hover:border-cyan-400/40 hover:text-cyan-300 transition-all text-sm whitespace-nowrap">
-                <Share2 className="w-3.5 h-3.5" /> Share case study
-              </button>
+              <img
+                src={logo}
+                alt="KriyaSoft LLP"
+                className="h-20 w-40 object-contain"
+              />
             </div>
           </motion.div>
         </div>

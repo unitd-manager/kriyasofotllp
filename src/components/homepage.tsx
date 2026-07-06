@@ -13,6 +13,10 @@ import {
   CheckCircle2,
   ArrowUpRight,
   Play,
+  Sparkles,
+  Activity,
+  BrainCircuit,
+  ShieldCheck,
 } from 'lucide-react';
 import React, { useState } from "react";
 import Navbar from './Navbar';
@@ -20,65 +24,11 @@ import Footer from './Footer';
 import { caseStudies } from '../data/caseStudies';
 
 
-// ─── Wireframe sphere — copied exactly, unmodified, from the services page ────
-
-function WireSphere({ size }: { size: number }) {
-  const t = size / 2;
-  const wireRing: React.CSSProperties = {
-    position: "absolute",
-    width: size,
-    height: size,
-    borderRadius: "9999px",
-    border: "1px solid rgba(186,230,253,0.55)",
-    background: "transparent",
-  };
-  return (
-    <div style={{ perspective: 1100 }}>
-      <div
-        style={{
-          position: "absolute",
-          width: size * 1.15,
-          height: size * 1.15,
-          left: -size * 0.075,
-          top: -size * 0.075,
-          borderRadius: "9999px",
-          background:
-            "radial-gradient(circle, rgba(125,211,252,0.35) 0%, rgba(125,211,252,0.22) 30%, rgba(125,211,252,0.08) 55%, transparent 75%)",
-          filter: "blur(14px)",
-          animation: "glow-pulse 6s ease-in-out infinite",
-        }}
-      />
-      <div
-        style={{
-          width: size,
-          height: size,
-          transformStyle: "preserve-3d",
-          transform: `translate(-${t}px, -${t}px)`,
-          animation: "cube-spin 22s linear infinite",
-        }}
-      >
-     <div style={{ ...wireRing, transform: `rotateX(0deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(30deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(60deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(90deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(120deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateX(150deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(0deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(30deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(60deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(90deg)` }} />
-        <div style={{ ...wireRing, transform: `rotateY(120deg)` }} />
-       <div style={{ ...wireRing, transform: `rotateY(150deg)` }} /> 
-      </div>
-    </div>
-  );
-}
-
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
   return (
-    <section className="hero-bg grid-bg min-h-screen flex items-center relative overflow-x-hidden overflow-y-visible pt-10">
+    <section className="hero-bg grid-bg min-h-screen flex items-center relative overflow-hidden pt-10">
       {/* Decorative orbs */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-sky-500/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 left-1/3 w-64 h-64 rounded-full bg-teal-400/5 blur-3xl pointer-events-none" />
@@ -117,84 +67,85 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right — wireframe sphere + Saturn-style ring, same design as services page */}
-          <div className="relative flex justify-center w-full overflow-hidden">
-            <div
-              className="relative flex items-center justify-center w-[95%] mx-auto sm:w-[300px] sm:mx-0 lg:w-[340px] max-w-full aspect-square"
-            >
-              <div className="relative z-10 scale-[0.75] sm:scale-100 origin-center" style={{ perspective: 1100 }}>
-                {/* Ring back half */}
-                <div
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    width: 480,
-                    height: 480,
-                    left: '50%',
-                    top: '50%',
-                    marginLeft: -240,
-                    marginTop: -240,
-                    transform: 'rotateX(72deg) rotateZ(-12deg)',
-                    transformStyle: 'preserve-3d',
-                    zIndex: 5,
-                    clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)',
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, transparent 30%, rgba(224,148,74,0.8) 35%, rgba(224,148,74,0.4) 45%, rgba(103,196,246,0.55) 54%, transparent 64%)',
-                      filter: 'blur(0.3px)',
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: '1.5px solid rgba(224,148,74,0.75)' }}
-                  />
-                </div>
-
-                <WireSphere size={170} />
-
-                {/* Ring front half */}
-                <div
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    width: 480,
-                    height: 480,
-                    left: '50%',
-                    top: '50%',
-                    marginLeft: -240,
-                    marginTop: -240,
-                    transform: 'rotateX(72deg) rotateZ(-12deg)',
-                    transformStyle: 'preserve-3d',
-                    zIndex: 20,
-                    clipPath: 'polygon(0 50%, 100% 50%, 100% 100%, 0 100%)',
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(circle, transparent 30%, rgba(224,148,74,0.8) 35%, rgba(224,148,74,0.4) 45%, rgba(103,196,246,0.55) 54%, transparent 64%)',
-                      filter: 'blur(0.3px)',
-                    }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: '1.5px solid rgba(224,148,74,0.75)' }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <style>{`
-            html, body { overflow-x: hidden; max-width: 100%; }
-            @keyframes cube-spin { from { transform: rotateY(0deg) rotateX(8deg); } to { transform: rotateY(360deg) rotateX(8deg); } }
-            @keyframes glow-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-          `}</style>
+          {/* Right — floating animated panel, same container/content design as the services page hero */}
+<div className="relative flex justify-center lg:justify-end">
+  <div className="float-animation relative w-full flex justify-center">
+    <div className="stat-card rounded-2xl sm:rounded-3xl w-full max-w-[520px] p-5 sm:p-8 glow-pulse">
+      {/* Experience badge — first item in the card */}
+      <div className="mb-5 relative overflow-hidden rounded-xl border border-sky-500/25 bg-gradient-to-r from-sky-500/15 via-teal-400/10 to-sky-500/15 px-4 py-3.5 flex items-center gap-3">
+        <div className="w-9 h-9 rounded-lg bg-sky-500/20 flex items-center justify-center shrink-0">
+          <Sparkles size={16} className="text-teal-300" />
+        </div>
+        <div className="min-w-0">
+          <p className="font-display font-800 text-lg text-white leading-none">
+            10<span className="text-teal-300">+</span> Years
+            <span className="text-slate-300 font-500 text-sm"> of Excellence</span>
+          </p>
+          <p className="text-slate-400 text-[11px] mt-1">
+            Experienced team of architects, engineers &amp; domain specialists
+          </p>
         </div>
       </div>
+
+      <div className="flex items-center justify-between mb-6 gap-2">
+        <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-3 py-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+          <span className="text-teal-400 text-[10px] font-medium tracking-widest uppercase whitespace-nowrap">
+            Live Service Snapshot
+          </span>
+        </div>
+        <div className="flex gap-1.5 shrink-0">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        {[
+          { icon: Activity, label: 'Healthcare', status: 'HIPAA Compliant', color: 'text-sky-400' },
+          { icon: BrainCircuit, label: 'AI & Machine Learning', status: 'Predictions Live', color: 'text-teal-400' },
+          { icon: ShieldCheck, label: 'Finance & Fintech', status: 'AML/KYC Verified', color: 'text-blue-400' },
+        ].map(({ icon: Icon, label, status, color }) => (
+          <div
+            key={label}
+            className="bg-white/[0.04] rounded-xl p-4 border border-white/10 flex items-center gap-3 hover:bg-white/[0.07] transition-colors"
+          >
+            <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+              <Icon size={18} className={color} />
+            </div>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-medium truncate">{label}</p>
+              <p className={`text-xs ${color}`}>{status}</p>
+            </div>
+            <CheckCircle2 size={16} className="text-teal-400 ml-auto shrink-0" />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 pt-5 border-t border-white/5 flex items-center gap-3">
+        <div className="flex -space-x-2 shrink-0">
+          {['bg-sky-400', 'bg-teal-400', 'bg-blue-400'].map((c, i) => (
+            <div key={i} className={`w-7 h-7 rounded-full ${c} border-2 border-[#0a0f1e]`} />
+          ))}
+        </div>
+        <span className="text-xs text-slate-400">
+          Trusted across healthcare, finance &amp; AI
+        </span>
+      </div>
+    </div>
+
+    <div className="hidden sm:flex absolute -top-5 -right-5 bg-teal-400/10 border border-teal-400/25 backdrop-blur-md rounded-xl px-5 py-3 shadow-lg items-center gap-2">
+      <CheckCircle2 size={16} className="text-teal-400" />
+      <span className="text-sm text-teal-300 font-medium whitespace-nowrap">
+        HIPAA · AML · KYC Ready
+      </span>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+
       {/* Scroll cue */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-600 animate-bounce">
         <ChevronDown size={18} />
@@ -266,6 +217,7 @@ const services = [
       'Regulatory compliance solutions (AML, KYC)',
       'Transaction processing and settlement systems',
       'Blockchain and cryptocurrency solutions',
+      'Financial data analytics and reporting',
     ],
     tags: ['Payments', 'AML/KYC', 'Blockchain'],
   },
@@ -373,6 +325,8 @@ function Capabilities() {
     <section className="bg-[#0a0f1e] py-20">
       <div className="max-w-7xl mx-auto px-[2.5%] sm:px-6">
 
+        {/* Heading */}
+
         <div className="text-center mb-12">
 
           <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-1.5 mb-4">
@@ -391,6 +345,8 @@ function Capabilities() {
         </div>
 
         <div className="grid lg:grid-cols-[340px_1fr] gap-6 sm:gap-8 items-stretch">
+
+          {/* LEFT PANEL */}
 
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden flex flex-col h-auto lg:h-[420px]">
 
@@ -445,9 +401,12 @@ function Capabilities() {
 
           </div>
 
+          {/* RIGHT PANEL */}
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-7 flex flex-col justify-between h-auto lg:h-[420px]">
 
   <div>
+
+    {/* Icon + Heading */}
 
     <div className="flex items-center gap-4 mb-4">
 
@@ -474,9 +433,13 @@ function Capabilities() {
 
     </div>
 
+    {/* Description */}
+
     <p className="text-slate-400 text-base leading-7 max-w-xl mb-6">
       {current.desc}
     </p>
+
+    {/* Technologies */}
 
     <div>
 
@@ -503,6 +466,7 @@ function Capabilities() {
 
   </div>
 
+  {/* Bottom Footer */}
   <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between flex-wrap gap-4">
 
   <div className="flex -space-x-2 shrink-0">
@@ -630,17 +594,18 @@ function CaseStudies() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {caseStudies.map(({ slug, industry, title, result, img }) => (
+          {caseStudies.map(({ slug, industry, title, img }) => (
             <Link
               to={`/case-studies/${slug}`}
               key={slug}
               className="card-hover group solid-card rounded-2xl overflow-hidden cursor-pointer block"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-52 overflow-hidden bg-slate-900">
                 <img
                   src={img}
                   alt={title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center scale-[1.02] group-hover:scale-[1.06] transition-transform duration-500 ease-out transform-gpu"
+                  style={{ backfaceVisibility: 'hidden' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080c18] via-transparent to-transparent" />
                 <span className="absolute top-4 left-4 bg-sky-500/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">
@@ -649,13 +614,13 @@ function CaseStudies() {
               </div>
               <div className="p-5 sm:p-6">
                 <h3 className="text-white font-medium text-base leading-snug mb-4">{title}</h3>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-teal-400 text-sm font-medium">{result}</span>
+                <span className="inline-flex items-center gap-1.5 text-sky-400 text-sm font-medium group-hover:gap-2.5 transition-all">
+                  Read More
                   <ArrowUpRight
                     size={16}
-                    className="text-slate-500 group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
                   />
-                </div>
+                </span>
               </div>
             </Link>
           ))}
@@ -703,7 +668,7 @@ function CTASection() {
 
 export default function Homepage() {
   return (
-    <div className="min-h-screen bg-[#0a0f1e] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0f1e]">
       <Navbar />
       <Hero />
       <ClientTicker />

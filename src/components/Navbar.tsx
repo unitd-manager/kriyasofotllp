@@ -21,8 +21,6 @@ export default function Navbar() {
   ];
 
   return (
-    //<header className="fixed top-0 left-0 right-0 z-50 py-2 backdrop-blur-md">
-
     <header className="fixed top-0 left-0 right-0 z-50 py-0 backdrop-blur-md">
       {/* Background layer — always mounted, only opacity animates, so blur/border never toggle on/off */}
       <div
@@ -31,7 +29,6 @@ export default function Navbar() {
         }`}
       />
 
-      {/*<div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">*/}
       <div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -57,12 +54,12 @@ export default function Navbar() {
             Sign In
           </a>
           */}
-          <a
-            href="#"
+          <Link
+            to="/contact"
             className="text-sm font-medium bg-gradient-to-r from-sky-500 to-teal-400 text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -84,12 +81,13 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a
-            href="#"
+          <Link
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
             className="text-sm font-medium bg-gradient-to-r from-sky-500 to-teal-400 text-white px-5 py-2.5 rounded-full text-center mt-2"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       )}
     </header>
