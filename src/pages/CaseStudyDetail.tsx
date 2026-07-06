@@ -60,7 +60,7 @@ export default function CaseStudyDetail() {
       <section className="relative min-h-screen overflow-hidden bg-[#050816]">
         {/* Ambient glows */}
         <div className="pointer-events-none fixed inset-0 z-0">
-          <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-cyan-500/8 blur-[180px] rounded-full" />
+          <div className="absolute top-[-5%] left-[-5%] w-[600px] h-[600px] bg-cyan-500/8 blur-[180px] rounded-full" />
           <div className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-purple-600/8 blur-[160px] rounded-full" />
           <div className="absolute bottom-0 left-1/2 w-[700px] h-[400px] -translate-x-1/2 bg-blue-600/6 blur-[180px] rounded-full" />
         </div>
@@ -73,7 +73,7 @@ export default function CaseStudyDetail() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050816]/40 via-transparent to-transparent" />
 
-          <div className="absolute top-20 left-[3%] sm:left-14 z-10">
+          <div className="absolute top-14 left-[5%] sm:left-14 z-10">
             <Link
               to="/"
               className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-cyan-400 border border-white/20 hover:border-cyan-300 backdrop-blur-md rounded-full pl-2 pr-5 py-2 text-white hover:text-black text-sm font-semibold shadow-lg shadow-black/30 transition-all duration-300 group w-fit"
@@ -90,7 +90,7 @@ export default function CaseStudyDetail() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="pb-8 sm:pb-14 pt-10 sm:pt-0"
+              className="pb-8 sm:pb-14 pt-24 sm:pt-0"
             >
               <div className="flex items-center gap-3 mb-3 sm:mb-5 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-400/25 text-cyan-300 text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
@@ -111,7 +111,7 @@ export default function CaseStudyDetail() {
                 <img
                   src={logo}
                   alt="KriyaSoft LLP"
-                  className="h-8 w-auto object-contain"
+                  className="h-20 w-30 object-contain"
                 />
                 <div className="hidden sm:block w-px h-8 bg-white/10" />
                 <span className="flex items-center gap-1.5 text-white/50 text-sm whitespace-nowrap">

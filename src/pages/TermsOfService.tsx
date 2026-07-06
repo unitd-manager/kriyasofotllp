@@ -78,7 +78,7 @@ const sections = [
 function TermsHero() {
   return (
     <section className="hero-bg grid-bg min-h-[46vh] flex items-center relative overflow-hidden pt-32 pb-16">
-      <div className="max-w-4xl mx-auto px-6 w-full text-center">
+      <div className="w-[95%] md:w-[80%] mx-auto text-center">
         <SectionTag>Terms of Service</SectionTag>
         <h1 className="font-display text-4xl lg:text-5xl font-800 text-white leading-tight mb-4">
           Terms That <span className="gradient-text">Keep Us Aligned</span>
@@ -98,7 +98,7 @@ function TermsHero() {
 function TermsContent() {
   return (
     <section className="bg-[#080c18] border-t border-white/10 py-14 md:py-20">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="w-[95%] md:w-[80%] mx-auto">
         <div className="space-y-5">
           {sections.map((s) => (
             <div

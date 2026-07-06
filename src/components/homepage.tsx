@@ -316,7 +316,7 @@ const capabilities = [
 ];
 
 function Capabilities() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
 
   const current = capabilities[active];
   const Icon = current.icon;
