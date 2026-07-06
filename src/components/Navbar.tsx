@@ -41,7 +41,7 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.href}
-              className="nav-link text-sm text-slate-400 hover:text-white transition-colors duration-200"
+              className="nav-link text-sm text-white hover:text-slate-400 transition-colors duration-200"
             >
               {l.label}
             </Link>
@@ -76,7 +76,7 @@ export default function Navbar() {
               key={l.label}
               to={l.href}
               onClick={() => setMenuOpen(false)}
-              className="text-slate-300 text-sm hover:text-white"
+              className="text-white text-sm hover:text-slate-400"
             >
               {l.label}
             </Link>
