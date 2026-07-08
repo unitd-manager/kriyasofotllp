@@ -435,7 +435,8 @@ function Capabilities() {
 
     {/* Description */}
 
-    <p className="text-slate-400 text-base leading-7 max-w-xl mb-6">
+    <p className="flex w-[70%] items-start gap-2 text-slate-400 text-sm leading-[1.5rem] mb-10">
+      
       {current.desc}
     </p>
 
