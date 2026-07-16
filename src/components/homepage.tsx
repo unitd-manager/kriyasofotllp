@@ -596,10 +596,9 @@ function CaseStudies() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {caseStudies.map(({ slug, industry, title, img }) => (
-            <Link
-              to={`/case-studies/${slug}`}
+            <div
               key={slug}
-              className="card-hover group solid-card rounded-2xl overflow-hidden cursor-pointer block"
+              className="card-hover group solid-card rounded-2xl overflow-hidden"
             >
               <div className="relative h-52 overflow-hidden bg-slate-900">
                 <img
@@ -614,16 +613,9 @@ function CaseStudies() {
                 </span>
               </div>
               <div className="p-5 sm:p-6">
-                <h3 className="text-white font-medium text-base leading-snug mb-4">{title}</h3>
-                <span className="inline-flex items-center gap-1.5 text-sky-400 text-sm font-medium group-hover:gap-2.5 transition-all">
-                  Read More
-                  <ArrowUpRight
-                    size={16}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
-                  />
-                </span>
+                <h3 className="text-white font-medium text-base leading-snug">{title}</h3>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

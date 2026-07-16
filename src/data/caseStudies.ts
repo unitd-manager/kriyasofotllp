@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'hipaa-telehealth-platform',
     industry: 'Healthcare',
-    title: 'HIPAA-compliant telehealth infrastructure for 500k patients',
+    title: 'HIPAA-compliant telehealth infrastructure for 5k patients',
     /*result: '99.99% uptime achieved',*/
     result: '99.99% uptime achieved',
     img: health1,
@@ -52,7 +52,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcomes: [
       { label: 'Platform Uptime', value: '99.99%' },
-      { label: 'Patients Onboarded', value: '500k+' },
+      { label: 'Patients Onboarded', value: '5k+' },
       { label: 'Record Sync Time', value: '-85%' },
       { label: 'Compliance Audits Passed', value: '100%' },
     ],
